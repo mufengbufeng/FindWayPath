@@ -15,10 +15,10 @@
             // 可以订阅这个事件中创建Loading界面
             EventSystem.Instance.Publish(root, new SceneChangeStart());
             // 等待CreateMyUnit的消息
-            Wait_CreateMyUnit waitCreateMyUnit = await root.GetComponent<ObjectWait>().Wait<Wait_CreateMyUnit>();
-            M2C_CreateMyUnit m2CCreateMyUnit = waitCreateMyUnit.Message;
-            Unit unit = UnitFactory.Create(currentScene, m2CCreateMyUnit.Unit);
-            unitComponent.Add(unit);
+            // Wait_CreateMyUnit waitCreateMyUnit = await root.GetComponent<ObjectWait>().Wait<Wait_CreateMyUnit>();
+            // M2C_CreateMyUnit m2CCreateMyUnit = waitCreateMyUnit.Message;
+            // Unit unit = UnitFactory.Create(currentScene, m2CCreateMyUnit.Unit);
+            // unitComponent.Add(unit);
             root.RemoveComponent<AIComponent>();
             
             EventSystem.Instance.Publish(currentScene, new SceneChangeFinish());

@@ -15,12 +15,20 @@ namespace ET.Client
             self.enterMap = rc.Get<GameObject>("EnterMap");
             self.enterMap.GetComponent<Button>().onClick.AddListener(() => { self.EnterMap().Coroutine(); });
         }
-        
+
         public static async ETTask EnterMap(this UILobbyComponent self)
         {
             Scene root = self.Root();
-            await EnterMapHelper.EnterMapAsync(root);
+
+
+
+            // await LSSceneChangeHelper.SceneChangeTo(root, "Map1", 0);
+            // await root.GetComponent<ObjectWait>().Wait<Wait_SceneChangeFinish>();
+            // EventSystem.Instance.Publish(root, new EnterMapFinish());
+            await SceneChangeHelper.SceneChangeTo(root, "Map1", 0);
             await UIHelper.Remove(root, UIType.UILobby);
+            return;
+            await EnterMapHelper.EnterMapAsync(root);
         }
     }
 }

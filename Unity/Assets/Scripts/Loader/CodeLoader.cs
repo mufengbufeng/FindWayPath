@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace ET
 {
-    public class CodeLoader: Singleton<CodeLoader>, ISingletonAwake
+    public class CodeLoader : Singleton<CodeLoader>, ISingletonAwake
     {
         private Assembly modelAssembly;
         private Assembly modelViewAssembly;
@@ -39,10 +39,10 @@ namespace ET
                 byte[] modelViewAssBytes = this.dlls["Unity.ModelView.dll"].bytes;
                 byte[] modelViewPdbBytes = this.dlls["Unity.ModelView.pdb"].bytes;
                 // 如果需要测试，可替换成下面注释的代码直接加载Assets/Bundles/Code/Unity.Model.dll.bytes，但真正打包时必须使用上面的代码
-                //modelAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Model.dll.bytes"));
-                //modelPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Model.pdb.bytes"));
-                //modelViewAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.ModelView.dll.bytes"));
-                //modelViewPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.ModelView.pdb.bytes"));
+                modelAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Model.dll.bytes"));
+                modelPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Model.pdb.bytes"));
+                modelViewAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.ModelView.dll.bytes"));
+                modelViewPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.ModelView.pdb.bytes"));
 
                 if (Define.EnableIL2CPP)
                 {
@@ -88,7 +88,7 @@ namespace ET
                     }
                 }
             }
-            
+
             (Assembly hotfixAssembly, Assembly hotfixViewAssembly) = this.LoadHotfix();
 
             World.Instance.AddSingleton<CodeTypes, Assembly[]>(new[]
@@ -156,7 +156,7 @@ namespace ET
                     }
                 }
             }
-            
+
             return (hotfixAssembly, hotfixViewAssembly);
         }
 
