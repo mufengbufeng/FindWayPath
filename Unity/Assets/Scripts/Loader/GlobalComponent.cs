@@ -11,16 +11,18 @@ namespace ET
             self.Global = GameObject.Find("/Global").transform;
             self.Unit = GameObject.Find("/Global/Unit").transform;
             self.UI = GameObject.Find("/Global/UI").transform;
+            self.MainCamera = Camera.main;
             self.GlobalConfig = Resources.Load<GlobalConfig>("GlobalConfig");
         }
     }
-    
+
     [ComponentOf(typeof(Scene))]
-    public class GlobalComponent: Entity, IAwake
+    public class GlobalComponent : Entity, IAwake
     {
         public Transform Global;
         public Transform Unit { get; set; }
         public Transform UI;
+        public Camera MainCamera { get; set; }
 
         public GlobalConfig GlobalConfig { get; set; }
     }

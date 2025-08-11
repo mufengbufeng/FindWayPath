@@ -25,7 +25,7 @@ namespace ET.Client
             // await LSSceneChangeHelper.SceneChangeTo(root, "Map1", 0);
             // await root.GetComponent<ObjectWait>().Wait<Wait_SceneChangeFinish>();
             // EventSystem.Instance.Publish(root, new EnterMapFinish());
-            await SceneChangeHelper.SceneChangeTo(root, "Map1", 0);
+            await SceneChangeHelper.SceneChangeTo(root, "Map3", 0);
             await UIHelper.Remove(root, UIType.UILobby);
             return;
             await EnterMapHelper.EnterMapAsync(root);

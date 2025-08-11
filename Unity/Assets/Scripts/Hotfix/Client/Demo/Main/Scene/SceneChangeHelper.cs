@@ -24,6 +24,7 @@
             EventSystem.Instance.Publish(currentScene, new SceneChangeFinish());
             // 通知等待场景切换的协程
             root.GetComponent<ObjectWait>().Notify(new Wait_SceneChangeFinish());
+            await ETTask.CompletedTask;
         }
     }
 }

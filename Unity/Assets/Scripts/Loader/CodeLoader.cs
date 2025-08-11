@@ -34,15 +34,15 @@ namespace ET
         {
             if (!Define.IsEditor)
             {
-                byte[] modelAssBytes = this.dlls["Unity.Model.dll"].bytes;
-                byte[] modelPdbBytes = this.dlls["Unity.Model.pdb"].bytes;
-                byte[] modelViewAssBytes = this.dlls["Unity.ModelView.dll"].bytes;
-                byte[] modelViewPdbBytes = this.dlls["Unity.ModelView.pdb"].bytes;
+                // byte[] modelAssBytes = this.dlls["Unity.Model.dll"].bytes;
+                // byte[] modelPdbBytes = this.dlls["Unity.Model.pdb"].bytes;
+                // byte[] modelViewAssBytes = this.dlls["Unity.ModelView.dll"].bytes;
+                // byte[] modelViewPdbBytes = this.dlls["Unity.ModelView.pdb"].bytes;
                 // 如果需要测试，可替换成下面注释的代码直接加载Assets/Bundles/Code/Unity.Model.dll.bytes，但真正打包时必须使用上面的代码
-                modelAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Model.dll.bytes"));
-                modelPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Model.pdb.bytes"));
-                modelViewAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.ModelView.dll.bytes"));
-                modelViewPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.ModelView.pdb.bytes"));
+                var modelAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Model.dll.bytes"));
+                var modelPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Model.pdb.bytes"));
+                var modelViewAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.ModelView.dll.bytes"));
+                var modelViewPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.ModelView.pdb.bytes"));
 
                 if (Define.EnableIL2CPP)
                 {
@@ -116,10 +116,11 @@ namespace ET
                 hotfixViewAssBytes = this.dlls["Unity.HotfixView.dll"].bytes;
                 hotfixViewPdbBytes = this.dlls["Unity.HotfixView.pdb"].bytes;
                 // 如果需要测试，可替换成下面注释的代码直接加载Assets/Bundles/Code/Hotfix.dll.bytes，但真正打包时必须使用上面的代码
-                //hotfixAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Hotfix.dll.bytes"));
-                //hotfixPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Hotfix.pdb.bytes"));
-                //hotfixViewAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.HotfixView.dll.bytes"));
-                //hotfixViewPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.HotfixView.pdb.bytes"));
+                hotfixAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Hotfix.dll.bytes"));
+                hotfixPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.Hotfix.pdb.bytes"));
+                hotfixViewAssBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.HotfixView.dll.bytes"));
+                hotfixViewPdbBytes = File.ReadAllBytes(Path.Combine(Define.CodeDir, "Unity.HotfixView.pdb.bytes"));
+
                 hotfixAssembly = Assembly.Load(hotfixAssBytes, hotfixPdbBytes);
                 hotfixViewAssembly = Assembly.Load(hotfixViewAssBytes, hotfixViewPdbBytes);
             }

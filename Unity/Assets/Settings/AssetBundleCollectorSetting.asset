@@ -102,3 +102,16 @@ MonoBehaviour:
         FilterRuleName: CollectScene
         AssetTags: 
         UserData: 
+    - GroupName: Prefab
+      GroupDesc: 
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/Bundles/Prefab
+        CollectorGUID: ee4666b37ab6f5b4ea4bd64724eec75a
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
